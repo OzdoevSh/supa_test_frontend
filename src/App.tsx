@@ -6,8 +6,6 @@ import Stats from './pages/Stats/Stats';
 import ErrorNotFound from './pages/ErrorNotFound/ErrorNotFound';
 import MainLayout from './components/MainLayout/MainLayout';
 
-import './App.css';
-
 const App: FC = () => (
   <Router>
     <MainLayout>
