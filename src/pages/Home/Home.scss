@@ -1,0 +1,22 @@
+.home {
+  .find-form {
+    .ant-form-item {
+      width: 240px;
+    }
+  
+    .find-button {
+      width: 180px;
+    }
+  
+    @media (max-width: 768px) {
+      .ant-form-item {
+        width: 100%;
+        margin-bottom: 8px;
+      }
+  
+      .find-button {
+        width: 100%;
+      }
+    }
+  }
+}
