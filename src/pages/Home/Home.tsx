@@ -61,7 +61,7 @@ const Home: FC = () => {
   }, [user, repo, trigger, totalCount]);
 
   useEffect(() => {
-    if ((data?.length as number) !== 0) {
+    if (Array.isArray(data) && data.length !== 0) {
       setIssues((prevIssues) => [...prevIssues, ...data]);
     }
   }, [data]);
