@@ -1,16 +1,16 @@
-import React from "react";
-import { Button, Flex, Result } from "antd";
+import { type FC } from 'react';
+import { Button, Flex, Result } from 'antd';
 
-import './ErrorNotFound.scss'
+import './ErrorNotFound.scss';
 
-const ErrorNotFound: React.FC = () => (
+const ErrorNotFound: FC = () => (
   <Flex className="error-not-found" vertical align="center" justify="center">
     <Result
       status="error"
       title="Ошибка 404"
       subTitle="Страницы, на которую вы пытаетесь перейти не существует."
       extra={[
-        <Button type='link'>Вернуться на главную</Button>,
+        <Button type="link">Вернуться на главную</Button>,
       ]}
     />
   </Flex>

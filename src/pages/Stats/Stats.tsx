@@ -1,17 +1,17 @@
-import { Flex, Table, TableProps } from 'antd';
-import { useEffect, useState } from 'react';
+import { type FC, useEffect, useState } from 'react';
+import { Flex, Table, type TableProps } from 'antd';
 import { useGetLogsQuery } from '../../redux/issuesApi';
 import Toolbar from '../../components/Toolbar/Toolbar';
 
 interface RecordType {
-  id: string;
-  userIp: string;
-  requestType: string;
-  createdAt: Date;
+  id: string
+  userIp: string
+  requestType: string
+  createdAt: Date
   executionTime: number
 }
 
-function Stats() {
+const Stats: FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(20);
 
@@ -22,7 +22,7 @@ function Stats() {
     limit: itemsPerPage,
   });
 
-  const handlePageChange = (page: number, pageSize?: number) => {
+  const handlePageChange = (page: number, pageSize?: number): void => {
     setItemsPerPage(pageSize ?? itemsPerPage);
     setCurrentPage(page);
   };
@@ -52,9 +52,9 @@ function Stats() {
 
   return (
     <Flex vertical>
-      <Toolbar title='Статистика - Список логов' />
+      <Toolbar title="Статистика - Список логов" />
       <Table
-        bordered={true}
+        bordered
         columns={columns}
         dataSource={isError ? [] : data?.logs}
         pagination={{
@@ -70,6 +70,6 @@ function Stats() {
       />
     </Flex>
   );
-}
+};
 
 export default Stats;

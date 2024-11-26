@@ -1,11 +1,14 @@
-import { Descriptions, DescriptionsProps, Flex, Result, Spin, Typography } from 'antd';
+import { type FC } from 'react';
+import {
+  Descriptions, type DescriptionsProps, Flex, Result, Spin, Typography,
+} from 'antd';
 import { useParams } from 'react-router-dom';
 import { useGetOneIssueQuery } from '../../redux/issuesApi';
 import Toolbar from '../../components/Toolbar/Toolbar';
 
-import './Issue.scss'
+import './Issue.scss';
 
-function Issue() {
+const Issue: FC = () => {
   const { number, repo, user } = useParams();
   const {
     isLoading, isFetching, isError, data,
@@ -34,7 +37,7 @@ function Issue() {
     {
       key: 'link',
       label: 'Ссылка',
-      children: <Typography.Link target='_blank' href={data?.html_url}>Открыть</Typography.Link>,
+      children: <Typography.Link target="_blank" href={data?.html_url}>Открыть</Typography.Link>,
     },
     {
       key: 'user_id',
@@ -74,12 +77,12 @@ function Issue() {
   ];
 
   return (
-    <Flex vertical className='issue'>
-      <Toolbar title='Информация об Issue' />
-      <Flex className='general'>
+    <Flex vertical className="issue">
+      <Toolbar title="Информация об Issue" />
+      <Flex className="general">
         {(isLoading || isFetching) && <Spin />}
         {isError && <Result status="error" title="Такого Issue не существует" />}
-        {data && (
+        {(Boolean(data)) && (
           <Descriptions
             title="Общая информация"
             bordered
@@ -90,6 +93,6 @@ function Issue() {
       </Flex>
     </Flex>
   );
-}
+};
 
 export default Issue;

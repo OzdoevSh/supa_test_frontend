@@ -1,8 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+/* eslint-disable no-param-reassign */
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 export interface FormFieldState {
-  user: string;
-  repo: string;
+  user: string
+  repo: string
 }
 
 const initialState: FormFieldState = {

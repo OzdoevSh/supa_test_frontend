@@ -1,28 +1,29 @@
-import { FC, ReactNode, useEffect, useState } from 'react';
+import {
+  type FC, type ReactNode, useEffect, useState,
+} from 'react';
 import { BarChartOutlined, HomeOutlined } from '@ant-design/icons';
-import { Layout, Menu, MenuProps } from 'antd';
+import { Layout, Menu, type MenuProps } from 'antd';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import './MainLayout.scss'
+import './MainLayout.scss';
 
 const { Header, Content } = Layout;
 
 type MenuItem = Required<MenuProps>['items'][number];
 
 interface MainLayoutProps {
-  children: ReactNode,
+  children: ReactNode
 }
 
 const MainLayout: FC<MainLayoutProps> = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   const [currentKey, setCurrentKey] = useState(location.pathname);
 
   useEffect(() => {
     setCurrentKey(location.pathname);
   }, [location]);
-
 
   const menuItems: MenuItem[] = [
     {
@@ -37,21 +38,21 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
     },
   ];
   return (
-    <Layout className='main-layout'>
-      <Header className='header'>
+    <Layout className="main-layout">
+      <Header className="header">
         <Menu
-          onClick={(e) => navigate(e.key)}
+          onClick={(e) => { navigate(e.key); }}
           theme="dark"
           defaultSelectedKeys={[currentKey]}
           mode="horizontal"
           items={menuItems}
         />
       </Header>
-      <Content className='content'>
+      <Content className="content">
         {children}
       </Content>
     </Layout>
   );
-}
+};
 
 export default MainLayout;
