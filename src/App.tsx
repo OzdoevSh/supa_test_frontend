@@ -1,11 +1,12 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
 import { type FC } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Issue from './pages/Issue/Issue';
 import Stats from './pages/Stats/Stats';
 import ErrorNotFound from './pages/ErrorNotFound/ErrorNotFound';
 import MainLayout from './components/MainLayout/MainLayout';
+
+import './App.css';
 
 const App: FC = () => (
   <Router>
