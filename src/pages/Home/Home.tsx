@@ -67,8 +67,10 @@ const Home: FC = () => {
   }, [data]);
 
   const handleScroll = async (e: UIEvent): Promise<void> => {
-    const { scrollTop, clientHeight, scrollHeight } = (e.target as HTMLDivElement);
-    if (scrollTop + clientHeight >= scrollHeight) {
+    const target = e.target as HTMLDivElement;
+    const { scrollTop, clientHeight, scrollHeight } = target;
+
+    if (scrollTop + clientHeight >= scrollHeight - 50) {
       if (!isLoading && !isFetching && !isError && data.length > 0) {
         setTotalCount(totalCount + 30);
         await trigger({
@@ -100,13 +102,15 @@ const Home: FC = () => {
         onRow={(record) => ({
           onClick: () => { navigate(`/issue/${user}/${repo}/${record.number}`); },
         })}
+        rowKey="number"
         bordered
         columns={columns}
         dataSource={isError ? [] : issues}
         pagination={false}
         loading={isLoading || isFetching}
         onScroll={handleScroll}
-        scroll={{ x: '100%', y: '720px' }}
+        scroll={{ x: '720px', y: '720px' }}
+        virtual
       />
     </Flex>
   );

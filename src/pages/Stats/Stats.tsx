@@ -56,6 +56,7 @@ const Stats: FC = () => {
     <Flex vertical>
       <Toolbar title="Статистика - Список логов" />
       <Table
+        rowKey="_id"
         bordered
         columns={columns}
         dataSource={isError ? [] : data?.logs}
@@ -68,7 +69,7 @@ const Stats: FC = () => {
           showTotal: (total) => `Всего ${total} записей`,
         }}
         loading={isLoading || isFetching}
-        scroll={{ x: '100%', y: '720px' }}
+        scroll={{ x: '720px', y: '720px' }}
       />
     </Flex>
   );
