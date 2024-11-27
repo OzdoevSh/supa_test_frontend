@@ -42,5 +42,21 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/triple-slash-reference': 'off',
     'import/no-extraneous-dependencies': 'off',
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    'comma-dangle': ['error', 'only-multiline'],
+    'max-len': [
+      'error',
+      {
+        code: 120,
+        ignoreStrings: true,
+      },
+    ],
+    semi: ['error', 'always'],
+    'no-unused-vars': [
+      'error',
+      {
+        args: 'none',
+      },
+    ],
   },
 };

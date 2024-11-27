@@ -3,6 +3,7 @@ import {
   Descriptions, type DescriptionsProps, Flex, Result, Spin, Typography,
 } from 'antd';
 import { useParams } from 'react-router-dom';
+import moment from 'moment';
 import { useGetOneIssueQuery } from '../../redux/issuesApi';
 import Toolbar from '../../components/Toolbar/Toolbar';
 
@@ -52,12 +53,12 @@ const Issue: FC = () => {
     {
       key: 'created_at',
       label: 'Дата создания',
-      children: <Typography.Text>{data?.created_at}</Typography.Text>,
+      children: <Typography.Text>{moment(data?.created_at).format('DD.MM.YYYY HH:mm')}</Typography.Text>,
     },
     {
       key: 'updated_at',
       label: 'Дата обновления',
-      children: <Typography.Text>{data?.updated_at}</Typography.Text>,
+      children: <Typography.Text>{moment(data?.updated_at).format('DD.MM.YYYY HH:mm')}</Typography.Text>,
     },
     {
       key: 'total_reactions',

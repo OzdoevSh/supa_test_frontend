@@ -1,5 +1,6 @@
 import { type FC, useEffect, useState } from 'react';
 import { Flex, Table, type TableProps } from 'antd';
+import moment from 'moment';
 import { useGetLogsQuery } from '../../redux/issuesApi';
 import Toolbar from '../../components/Toolbar/Toolbar';
 
@@ -43,6 +44,7 @@ const Stats: FC = () => {
     {
       title: 'Дата создания',
       dataIndex: 'createdAt',
+      render: ({ record }) => moment(record?.createdAt).format('DD.MM.YYYY HH:mm'),
     },
     {
       title: 'Время выполнения (мс)',
