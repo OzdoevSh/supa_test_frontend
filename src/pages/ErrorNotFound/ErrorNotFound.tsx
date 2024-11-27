@@ -4,14 +4,14 @@ import { Button, Flex, Result } from 'antd';
 import './ErrorNotFound.scss';
 
 const ErrorNotFound: FC = () => (
-  <Flex className="error-not-found" vertical align="center" justify="center">
+  <Flex align="center" className="error-not-found" justify="center" vertical>
     <Result
-      status="error"
-      title="Ошибка 404"
-      subTitle="Страницы, на которую вы пытаетесь перейти не существует."
       extra={[
         <Button type="link">Вернуться на главную</Button>,
       ]}
+      status="error"
+      subTitle="Страницы, на которую вы пытаетесь перейти не существует."
+      title="Ошибка 404"
     />
   </Flex>
 );

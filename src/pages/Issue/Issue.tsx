@@ -38,7 +38,7 @@ const Issue: FC = () => {
     {
       key: 'link',
       label: 'Ссылка',
-      children: <Typography.Link target="_blank" href={data?.html_url}>Открыть</Typography.Link>,
+      children: <Typography.Link href={data?.html_url} target="_blank">Открыть</Typography.Link>,
     },
     {
       key: 'user_id',
@@ -78,17 +78,17 @@ const Issue: FC = () => {
   ];
 
   return (
-    <Flex vertical className="issue">
+    <Flex className="issue" vertical>
       <Toolbar title="Информация об Issue" />
       <Flex className="general">
         {(isLoading || isFetching) && <Spin />}
         {isError && <Result status="error" title="Такого Issue не существует" />}
         {(Boolean(data)) && (
           <Descriptions
-            title="Общая информация"
             bordered
-            items={issueInfoItems}
             column={1}
+            items={issueInfoItems}
+            title="Общая информация"
           />
         )}
       </Flex>

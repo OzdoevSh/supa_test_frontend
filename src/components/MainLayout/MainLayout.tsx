@@ -41,11 +41,11 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
     <Layout className="main-layout">
       <Header className="header">
         <Menu
+          defaultSelectedKeys={[currentKey]}
+          items={menuItems}
+          mode="horizontal"
           onClick={(e) => { navigate(e.key); }}
           theme="dark"
-          defaultSelectedKeys={[currentKey]}
-          mode="horizontal"
-          items={menuItems}
         />
       </Header>
       <Content className="content">

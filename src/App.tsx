@@ -10,10 +10,10 @@ const App: FC = () => (
   <Router>
     <MainLayout>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/issue/:user/:repo/:number" element={<Issue />} />
-        <Route path="/stats" element={<Stats />} />
-        <Route path="*" element={<ErrorNotFound />} />
+        <Route element={<Home />} path="/" />
+        <Route element={<Issue />} path="/issue/:user/:repo/:number" />
+        <Route element={<Stats />} path="/stats" />
+        <Route element={<ErrorNotFound />} path="*" />
       </Routes>
     </MainLayout>
   </Router>

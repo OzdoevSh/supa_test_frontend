@@ -58,5 +58,6 @@ module.exports = {
         args: 'none',
       },
     ],
+    'react/jsx-sort-props': 'warn',
   },
 };

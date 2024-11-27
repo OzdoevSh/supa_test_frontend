@@ -84,33 +84,32 @@ const Home: FC = () => {
   };
 
   return (
-    <Flex vertical className="home">
+    <Flex className="home" vertical>
       <Toolbar title="Главная - Список issues">
-        <Form className="find-form" onFinish={onFinish} size="large" layout="inline" initialValues={{ user, repo }}>
+        <Form className="find-form" initialValues={{ user, repo }} layout="inline" onFinish={onFinish} size="large">
           <Form.Item name="user">
             <Input placeholder="Пользователь" />
           </Form.Item>
           <Form.Item name="repo">
             <Input placeholder="Репозиторий" />
           </Form.Item>
-          <Button className="find-button" type="primary" htmlType="submit">
+          <Button className="find-button" htmlType="submit" type="primary">
             Получить issues
           </Button>
         </Form>
       </Toolbar>
       <Table
-        onRow={(record) => ({
-          onClick: () => { navigate(`/issue/${user}/${repo}/${record.number}`); },
-        })}
-        rowKey="number"
         bordered
         columns={columns}
         dataSource={isError ? [] : issues}
-        pagination={false}
         loading={isLoading || isFetching}
+        onRow={(record) => ({
+          onClick: () => { navigate(`/issue/${user}/${repo}/${record.number}`); },
+        })}
         onScroll={handleScroll}
-        scroll={{ x: '720px', y: '720px' }}
-        virtual
+        pagination={false}
+        rowKey="number"
+        scroll={{ x: '100%', y: '720px' }}
       />
     </Flex>
   );

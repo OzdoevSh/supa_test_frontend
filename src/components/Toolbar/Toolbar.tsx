@@ -9,7 +9,7 @@ interface ToolbarProps {
 }
 
 const Toolbar: FC<ToolbarProps> = ({ title, children }) => (
-  <Flex className="toolbar" justify="space-between" align="center" wrap>
+  <Flex align="center" className="toolbar" justify="space-between" wrap>
     <Typography.Text className="title">{title}</Typography.Text>
     {children}
   </Flex>
